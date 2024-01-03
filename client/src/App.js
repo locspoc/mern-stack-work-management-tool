@@ -1,10 +1,19 @@
-import { Button, ConfigProvider } from 'antd';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
 	return (
-		<div className="flex justify-center h-screen items-center flex-col bg-red-500">
-			<h1>DM Tracker</h1>
-			<Button type="primary">Button</Button>
+		<div>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/register" element={<Register />} />
+				</Routes>
+			</BrowserRouter>
 		</div>
 	);
 }
