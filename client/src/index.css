@@ -10,8 +10,27 @@
 	padding: 0;
 }
 
+.ant-form-item {
+	margin-bottom: 10px !important;
+}
+
+.ant-form-item-label {
+	padding: 0 !important;
+}
+
 button {
-	/* background-color: #3f3f3f !important; */
-	border-radius: 0 !important;
+	border-radius: 1px !important;
+	box-shadow: none !important;
 	height: 40px !important;
+}
+
+input {
+	border: 1px solid #bbbbbb !important;
+	border-radius: 1px !important;
+	height: 40px !important;
+}
+
+input:focus {
+	border: 1px solid #343434 !important;
+	box-shadow: none !important;
 }
