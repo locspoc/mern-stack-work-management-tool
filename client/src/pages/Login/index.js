@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
 
+import ColumnTitle from '../../components/ColumnTitle';
 import Divider from '../../components/Divider';
 
 function Login() {
@@ -10,12 +11,15 @@ function Login() {
 	};
 	return (
 		<div className="grid grid-cols-2">
-			<div className="bg-primary h-screen"></div>
+			<div className="bg-primary h-screen flex flex-col justify-center items-center">
+				<ColumnTitle />
+			</div>
 			<div className="flex justify-center items-center">
 				<div className="w-[400px]">
-					<h1 className="text-2xl text-gray-700">
+					<h1 className="text-2xl text-gray-700 uppercase">
 						LOGIN TO YOUR ACCOUNT
 					</h1>
+					<span></span>
 					<Divider />
 					<Form layout="vertical" onFinish={onFinish}>
 						<Form.Item label="Email" name="email">
