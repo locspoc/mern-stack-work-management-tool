@@ -1,0 +1,32 @@
+const router = require('express').Router();
+const User = require('../models/userModel');
+const bcrypt = require('bcryptjs');
+
+// register new user
+router.post('/register', async (req, res) => {
+	try {
+		// check if the user already exists
+		const userExists = User.findOne({ email: req.body.email });
+		if (userExists) {
+			throw new Error('User already exists');
+		}
+		// hash the password
+		const salt = await bcrypt.genSalt(10);
+		const hashedPassword = await bcrypt.hash(req.body.password, salt);
+		req.body.password = hashedPassword;
+		// save the user
+		const User = new User(req.body);
+		await user.save();
+		res.send({
+			success: true,
+			message: 'User registered successfully',
+		});
+	} catch (error) {
+		res.send({
+			success: false,
+			message: error.message,
+		});
+	}
+});
+
+module.exports = router;
