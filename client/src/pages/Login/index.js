@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import { Link } from 'react-router-dom';
 
 import ColumnTitle from '../../components/ColumnTitle';
