@@ -1,13 +1,23 @@
 import React from 'react';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import { Link } from 'react-router-dom';
 
 import ColumnTitle from '../../components/ColumnTitle';
 import Divider from '../../components/Divider';
+import { LoginUser } from '../../apicalls/users';
 
 function Login() {
-	const onFinish = (values) => {
-		console.log('Success: ', values);
+	const onFinish = async (values) => {
+		try {
+			const response = await LoginUser(values);
+			if (response.success) {
+				localStorage.setItem('token', response.data);
+				message.success(response.message);
+				window.location.href = '/';
+			}
+		} catch (error) {
+			message.error(error.message);
+		}
 	};
 	return (
 		<div className="grid grid-cols-2">

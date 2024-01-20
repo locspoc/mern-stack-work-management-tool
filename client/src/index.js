@@ -7,17 +7,15 @@ import { ConfigProvider } from 'antd';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<React.StrictMode>
-		<ConfigProvider
-			theme={{
-				token: {
-					colorPrimary: '#2e3840',
-				},
-			}}
-		>
-			<App />
-		</ConfigProvider>
-	</React.StrictMode>
+	<ConfigProvider
+		theme={{
+			token: {
+				colorPrimary: '#2e3840',
+			},
+		}}
+	>
+		<App />
+	</ConfigProvider>
 );
 
 reportWebVitals();
